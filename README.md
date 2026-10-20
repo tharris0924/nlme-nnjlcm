@@ -7,7 +7,7 @@ Here is a display of the mixing proportions estimated as the algorithm runs for 
 
 And here are the fitted nonlinear trajectories:
 
-![](https://github.com/tharris0924/nn-jlcm_p1/blob/main/Codes/fitted_long_traj.png)
+![](https://github.com/tharris0924/nlme-nnjlcm/blob/main/Codes/fitted_long_traj.png)
 
 This repo provides the code to be able to generate the data for the simulated data above in `nl_sim2.R`. The appropriate `keras3` dependancies can be installed using the requirements-r-keras.txt file with the following codes:
 
