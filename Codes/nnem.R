@@ -148,7 +148,7 @@ nnem = function(k,maxit, long_form_g, ranform, survform, data_long, data_wide, i
     
     
     # M-step: update parameters using the responsibilities
-    mstep.result <- mstep(postprob=P,theta = theta, data_wide = data_wide, data_long = data_long, ranform = ranform, long_form_g = long_form_g,gform =  gform, EM_iter = iter, learning_rate_lme = learning_rate_lme, inheritedModels = inherited)
+    mstep.result <- mstep(postprob=P,theta = theta, data_wide = data_wide, data_long = data_long, ranform = ranform, long_form_g = long_form_g,gform =  gform, EM_iter = iter, learning_rate_lme = learning_rate_lme, inheritedModels = inherited, batch_size=nrow(data_long))
     theta <- mstep.result$Parameters
     theta_sd <- mstep.result$`Model Estimates & S.E.`
     pj <- theta$pj # update priors
@@ -208,11 +208,5 @@ nnem = function(k,maxit, long_form_g, ranform, survform, data_long, data_wide, i
   return(result)
 }
 
-
-# run an instance of the simulation from the paper K=4
-source("Simulations/Example 4comp/codes/gen_data_k4.R")
-result <- nnem(k=4, maxit =20, long_form_g = long_form_g, ranform = ranform, data_long = data_long, data_wide = data_wide, id_var = "ID", gform=~x, y_var = "y", event_var = "delta", measure_var = "measure_time", event_time_var = "event_time")
-
-plot_long(fitted_nnjlcm = result, type="both")
 # run the model on the application dataset, PAQUID
 

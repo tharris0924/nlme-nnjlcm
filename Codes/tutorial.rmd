@@ -1,0 +1,22 @@
+---
+title: "tutorial"
+output: html_document
+---
+
+```{r}
+getwd()
+source("em_utils.R")
+source("estep.R")
+source("mstep.R")
+source("nnem.R")
+source('nll2.R') # make sure you have python 3.10 installed with the necessary packages
+source('nl_sim2.r')
+
+train <- nl_sim2(seed=3, n=250, censor_rate = 0.05, k_tofit=4)
+# Run the main model
+
+result <- nnem(k=4, long_form_g =  y~1+ measure_time + I(measure_time^2), ranform =~1+ measure_time + I(measure_time^2), data_long = train$datalong, data_wide = train$data_wide, id_var = "ID", gform=~x, y_var = "y", event_var = "delta", measure_var = "measure_time", event_time_var = "event_time", learning_rate_lme = 0.001, maxit =20)
+
+plot_long(fitted_nnjlcm = result, type="both")
+
+```

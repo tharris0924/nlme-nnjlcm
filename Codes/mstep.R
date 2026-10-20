@@ -1,5 +1,5 @@
 #! M - step
-mstep <- function(postprob, theta, data_wide, data_long, ranform, long_form_g,  gform, EM_iter, learning_rate_lme, inheritedModels){
+mstep <- function(postprob, theta, data_wide, data_long, ranform, long_form_g,  gform, EM_iter, learning_rate_lme, inheritedModels, batch_size){
 
   n <- nrow(data_wide)
   m <- ncol(postprob)

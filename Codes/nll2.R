@@ -189,7 +189,7 @@ NLL2 <<- new_layer_class(
   }
 )
 
-library(keras3)
+# library(keras3)
 
 # reticulate::py_config()                       
 # reticulate::virtualenv_python("r-keras")     
@@ -211,6 +211,6 @@ library(keras3)
 # Save a pip-style requirements file
 # writeLines(pkgs$requirement, "requirements-r-keras.txt")
 
-reticulate::virtualenv_create("r-keras", python = "3.10")
-reticulate::virtualenv_install("r-keras", requirements = "requirements-r-keras.txt")
+# reticulate::virtualenv_create("r-keras", python = "3.10")
+# reticulate::virtualenv_install("r-keras", requirements = "requirements-r-keras.txt")
 
